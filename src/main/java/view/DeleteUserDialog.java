@@ -18,8 +18,8 @@ public class DeleteUserDialog extends javax.swing.JDialog {
      */
     private PropertyChangeSupport listeners = new PropertyChangeSupport(this);
 
-    public void addPropertyChangeListener(PropertyChangeListener l) {
-        this.listeners.addPropertyChangeListener(l);
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        this.listeners.addPropertyChangeListener(listener);
     }
 
     public DeleteUserDialog(java.awt.Frame parent, boolean modal) {

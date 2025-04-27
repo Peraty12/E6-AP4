@@ -4,6 +4,7 @@
  */
 package model;
 
+import DAO.UserDao;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 
@@ -15,17 +16,37 @@ public class UserListModel extends AbstractTableModel {
     
     //Attributs
     
+    private UserDao userdao = new UserDao();
     //Column name in a String array
-    String[] columnNames = {"Id", "Nom", "Prenom", "Mail"};
+    String[] columnNames = {"Id_utilisateur", "Identifiant", "Mot de passe", "role"};
     
     
     
     private ArrayList<User> usersList = new ArrayList<User>();
 
     public UserListModel() {
-        this.usersList.add(new User(1,"Xiong","Teddy","t.xiong@gmail.com"));
-        this.usersList.add(new User(2,"Sage","Mateo","m.sage@gmail.com"));
-        this.usersList.add(new User(3,"Ethane","Zimmermann","e.zimmermann@gmail.com"));
+        this.usersList = userdao.getAll();
+    }
+    
+    public void addUserList(String identifiant, String motDePasse, String role)
+    {
+        User dbUser = this.userdao.insertUser(new User(identifiant,motDePasse, role));
+        usersList.add(dbUser);
+        this.usersList = userdao.getAll();
+        this.fireTableDataChanged();
+    }
+    
+    public void updateUser(int id, String identifiant, String motDePasse, String role)
+    {
+        User dbuser = this.userdao.updateUser(new User(id, identifiant, motDePasse, role));
+        this.usersList = userdao.getAll();
+        this.fireTableDataChanged();
+    }
+    
+    public void userDelete(int identifiant){
+        this.userdao.deleteUser(identifiant);
+        this.usersList = userdao.getAll();
+        this.fireTableDataChanged();
     }
     
     public String getColumnName(int column){
@@ -47,11 +68,11 @@ public class UserListModel extends AbstractTableModel {
             case 0 :
                 return i.getId();
             case 1 :
-                return i.getNom();
+                return i.getIdentifant();
             case 2 :
-                return i.getPrenom();
+                return i.getMdp();
             case 3 :
-                return i.getMail();
+                return i.getRole();
         }
         return null;
     }

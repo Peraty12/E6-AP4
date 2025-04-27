@@ -11,47 +11,54 @@ package model;
 public class User {
     
     private int id;
-    private String nom;
-    private String prenom;
-    private String Mail;
+    private String identifant;
+    private String mdp;
+    private String role;
 
-    public User(int id, String nom, String prenom, String Mail) {
+    public User(int id, String identifant, String mdp, String role) {
         this.id = id;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.Mail = Mail;
+        this.identifant = identifant;
+        this.mdp = mdp;
+        this.role = role;
     }
+    
+    public User(String identifant, String mdp, String role) {
+        this.identifant = identifant;
+        this.mdp = mdp;
+        this.role = role;
+    }
+    
+    public User(){};
 
     public int getId() {
-        return id;
+        return this.id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    
+    public String getIdentifant() {
+        return this.identifant;
+    }
+    public void setIdentifant(String identifant) {
+        this.identifant = identifant;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    
+    public String getMdp() {
+        return this.mdp;
+    }
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
     }
 
-    public String getPrenom() {
-        return prenom;
+    
+    public String getRole() {
+        return this.role;
     }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
-
-    public String getMail() {
-        return Mail;
-    }
-
-    public void setMail(String Mail) {
-        this.Mail = Mail;
+    public void setRole(String role) {
+        this.role = role;
     }
     
     

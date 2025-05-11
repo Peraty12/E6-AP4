@@ -12,20 +12,26 @@ public class User {
     
     private int id;
     private String identifant;
-    private String mdp;
-    private String role;
+    private String nom;
+    private String prenom;
+    private String email;
+    private String motDePasse;
 
-    public User(int id, String identifant, String mdp, String role) {
+    public User(int id, String identifant, String nom, String prenom, String email, String motDePasse) {
         this.id = id;
         this.identifant = identifant;
-        this.mdp = mdp;
-        this.role = role;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.motDePasse = motDePasse;
     }
     
-    public User(String identifant, String mdp, String role) {
+    public User(String identifant, String nom, String prenom, String email, String motDePasse) {
         this.identifant = identifant;
-        this.mdp = mdp;
-        this.role = role;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.motDePasse = motDePasse;
     }
     
     public User(){};
@@ -46,19 +52,35 @@ public class User {
     }
 
     
-    public String getMdp() {
-        return this.mdp;
+    public String getNom() {
+        return this.nom;
     }
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     
-    public String getRole() {
-        return this.role;
+    public String getPrenom() {
+        return this.prenom;
     }
-    public void setRole(String role) {
-        this.role = role;
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+    
+    
+    public String getEmail(){
+        return this.email;
+    }
+    public void setEmail(String email){
+        this.email = email;
+    }
+    
+    
+    public String getMotDePasse(){
+        return this.motDePasse;
+    }
+    public void setMotDepasse(String motDePasse){
+        this.motDePasse = motDePasse;
     }
     
     

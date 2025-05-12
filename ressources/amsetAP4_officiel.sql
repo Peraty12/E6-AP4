@@ -42,9 +42,9 @@ CREATE TABLE IF NOT EXISTS `auth_groups_users` (
 --
 
 INSERT INTO `auth_groups_users` (`id`, `user_id`, `group`, `created_at`) VALUES
-(1, 1, 'admin@amset.com', '2024-11-22 14:42:00'),
-(2, 2, 'com@amset.com', '2024-11-22 14:42:12'),
-(3, 3, 'rhu@amset.com', '2024-11-22 14:42:20');
+(1, 1, 'admin', '2024-11-22 14:42:00'),
+(2, 2, 'com', '2024-11-22 14:42:12'),
+(3, 3, 'rhu', '2024-11-22 14:42:20');
 
 -- --------------------------------------------------------
 

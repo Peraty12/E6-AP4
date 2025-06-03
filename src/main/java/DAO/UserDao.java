@@ -46,8 +46,19 @@ public class UserDao {
                 String prenom = res.getString("PRENOM");
                 String email = res.getString("EMAIL");
                 String motDePasse = res.getString("MOT_DE_PASSE");
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                
+//                nouvel attributs
+//                String attributs = res.getString("ATTRIBUTS");
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!               
 
-                userList.add(new User(id, identifant, nom, prenom, email, motDePasse));
+
+
+                userList.add(new User(id, identifant, nom, prenom, email, motDePasse
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+//              nouvel attributs
+//                        ,attributs
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                
+                ));
             }
 
             return userList;
@@ -59,7 +70,21 @@ public class UserDao {
     
     public User insertUser(User user) {
         try {
-            String query = "insert into utilisateur(ID_UTILISATEUR, IDENTIFIANT, NOM, PRENOM, EMAIL, MOT_DE_PASSE) VALUES (?, ?, ?, ?, ?, ?)";
+            String query = "insert into utilisateur(ID_UTILISATEUR, IDENTIFIANT, NOM, PRENOM, EMAIL, MOT_DE_PASSE"
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                    
+//                    nouvel attributs
+//                    + ", Attributs"
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
+                    
+                    
+                    + ") VALUES (?, ?, ?, ?, ?, ?"
+                    
+                    
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                    
+//                    nouvel attributs                    
+//                    + ",?"
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                    
+                    + ")";
             PreparedStatement ps = this.connexion.prepareStatement(query);
             ps.setString(1, null);
             ps.setString(2, user.getIdentifant());
@@ -67,6 +92,10 @@ public class UserDao {
             ps.setString(4, user.getPrenom());
             ps.setString(5, user.getEmail());
             ps.setString(6, user.getMotDePasse());
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                    
+//                    nouvel attributs             
+//            ps.setString(7, user.getAttributs());
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!              
             int n = ps.executeUpdate();
             // n contient l'id généré lors de l'insertion en base
             // ici on le récupère car c'est un insert (inutile dans le cas d'un update ou d'un delete)
@@ -79,13 +108,22 @@ public class UserDao {
     
     public User updateUser(User user) {
         try {
-            String query = "UPDATE utilisateur SET IDENTIFIANT = ?, NOM = ?, PRENOM = ?, EMAIL = ?, MOT_DE_PASSE = ? WHERE ID_UTILISATEUR = ?";
+            String query = "UPDATE utilisateur SET IDENTIFIANT = ?, NOM = ?, PRENOM = ?, EMAIL = ?, MOT_DE_PASSE = ?"
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                    
+//                    nouvel attributs 
+//                    + ", ATTRIBUTS = ?"
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                    
+                    + " WHERE ID_UTILISATEUR = ?";
             PreparedStatement ps = this.connexion.prepareStatement(query);
             ps.setString(1, user.getIdentifant());
             ps.setString(2, user.getNom());
             ps.setString(3, user.getPrenom());
             ps.setString(4, user.getEmail());
             ps.setString(5, user.getMotDePasse());
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                    
+//                    nouvel attributs             
+//            ps.setString(6, user.getAttributs());
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             ps.setInt(6, user.getId());
             ps.executeUpdate();
         }

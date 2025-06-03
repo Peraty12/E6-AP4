@@ -61,6 +61,13 @@ public class MainView extends javax.swing.JFrame {
         return (String) this.usersList.getModel().getValueAt(this.usersList.getSelectedRow(), 5);
     }
     
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//    nouvel attributs
+    public String getSelectedAttributs(){
+        return (String) this.usersList.getModel().getValueAt(this.usersList.getSelectedRow(), 6);
+    }
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
     
 
     /**

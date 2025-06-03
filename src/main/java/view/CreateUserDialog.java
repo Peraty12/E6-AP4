@@ -112,29 +112,31 @@ public class CreateUserDialog extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
-                    .addComponent(labelIdentifiant)
-                    .addComponent(newIdentifiantUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelIdentifiant1)
-                    .addComponent(newNomUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelIdentifiant2)
-                    .addComponent(newPrenomUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelIdentifiant3)
-                    .addComponent(newEmailUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelMotDePasse)
-                    .addComponent(newMotDePasseUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelMotDePasse1)
-                    .addComponent(verifNewMotDePasseUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkboxShowNewMotDePasse)
-                    .addComponent(checkboxShowVerifNewMotDePasse))
-                .addGap(20, 20, 20))
-            .addGroup(javax.swing.GroupLayout.Alignment.CENTER, layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(btnValideAjoutUser)
-                .addGap(217, 217, 217))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                            .addComponent(labelIdentifiant)
+                            .addComponent(newIdentifiantUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelIdentifiant1)
+                            .addComponent(newNomUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelIdentifiant2)
+                            .addComponent(newPrenomUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelIdentifiant3)
+                            .addComponent(newEmailUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelMotDePasse)
+                            .addComponent(newMotDePasseUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelMotDePasse1)
+                            .addComponent(verifNewMotDePasseUser, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(checkboxShowNewMotDePasse)
+                            .addComponent(checkboxShowVerifNewMotDePasse))
+                        .addGap(20, 20, 20))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnValideAjoutUser)
+                        .addGap(217, 217, 217))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,6 +213,11 @@ public class CreateUserDialog extends javax.swing.JDialog {
         this.newMotDePasseUser.setText("");
         this.verifNewMotDePasseUser.setText("");
         
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//        nouvel attributs
+//        this.newAttributs.setText("");
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        
         this.checkboxShowNewMotDePasse.setSelected(false);
         this.newMotDePasseUser.setEchoChar('*');
         this.checkboxShowVerifNewMotDePasse.setSelected(false);
@@ -247,23 +254,29 @@ public class CreateUserDialog extends javax.swing.JDialog {
     {
         return this.newIdentifiantUser.getText();
     }
-    
     public String getNomUser(){
         return this.newNomUser.getText();
     }
-    
     public String getPrenomUser(){
         return this.newPrenomUser.getText();
     }
-    
     public String getEmailUser(){
         return this.newEmailUser.getText();
     }
-    
     public String getMotDePasseUser()
     {
         return String.valueOf(this.newMotDePasseUser.getPassword());
     }
+    
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//    nouvel attributs
+//    public String getAttributs()
+//    {
+//        return String.valueOf(this.newAttributs.getText());
+//    }
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
+    
     
     /**
      * @param args the command line arguments

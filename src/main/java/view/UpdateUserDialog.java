@@ -18,8 +18,14 @@ public class UpdateUserDialog extends javax.swing.JDialog {
      * Creates new form UpdateUserDialog
      */
     private PropertyChangeSupport listeners = new PropertyChangeSupport(this);
+    
+//    --------------------------------------------------------------------------------
+//  Attributs
 
     private int id;
+    
+//    --------------------------------------------------------------------------------
+//  Methodes
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
         this.listeners.addPropertyChangeListener(listener);
@@ -29,50 +35,60 @@ public class UpdateUserDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
+//    --------------------------------------------------------------------------------
+//    Methodes Setter
 
     public void setIdUser(int id) {
         this.id = id;
     }
-    public int getIdUser() {
-        return this.id;
-    }
-    
-//    set la valeur de l'ifentifiant
     public void setIdentifiantUser(String identifiant) {
         this.modifIdentifiantUser.setText(identifiant);
-    }
-//    Récupére la nouvelle valeur de l'identifiant
-    public String getIdentifiantUser() {
-        return this.modifIdentifiantUser.getText();
     }
     
     public void setNomUser(String nom){
         this.modifNomUser.setText(nom);
+    } 
+    public void setPrenomUser(String prenom){
+        this.modifPrenomUser.setText(prenom);
+    }
+    public void setEmailUser(String email){
+        this.modifEmailUser.setText(email);
+    }
+    public void setMotDePasseUser(String motDePasse) {
+        this.modifMotDePasseUser.setText(motDePasse);
+    }
+    
+//    --------------------------------------------------------------------------------
+//    methodes Getter
+    
+    public int getIdUser() {
+        return this.id;
+    }
+    public String getIdentifiantUser() {
+        return this.modifIdentifiantUser.getText();
     }
     public String getNomUser(){
         return this.modifNomUser.getText();
     }
-    
-    public void setPrenomUser(String prenom){
-        this.modifPrenomUser.setText(prenom);
-    }
     public String getPrenomUser(){
         return this.modifPrenomUser.getText();
-    }
-    
-    public void setEmailUser(String email){
-        this.modifEmailUser.setText(email);
     }
     public String getEmailUser(){
         return this.modifEmailUser.getText();
     }
-    
-    public void setMotDePasseUser(String motDePasse) {
-        this.modifMotDePasseUser.setText(motDePasse);
-    }
     public String getMotDePasseUser(){
         return String.valueOf(this.modifMotDePasseUser.getPassword());
     }
+    
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//    nouvel attributs
+//    public void setAttributs(String attributs) {
+//        this.modifAttributs.setText(attributs);
+//    }
+//    public String getAttributs(){
+//        return String.valueOf(this.modifAttributs.getText());
+//    }
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     
 //    attribut les valeurs par défault
     public void setDefaultData(){

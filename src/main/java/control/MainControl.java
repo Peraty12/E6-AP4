@@ -73,7 +73,12 @@ public class MainControl implements PropertyChangeListener {
                                 this.createUserDialog.getNomUser(),
                                 this.createUserDialog.getPrenomUser(),
                                 this.createUserDialog.getEmailUser(),
-                                this.createUserDialog.getMotDePasseUser());
+                                this.createUserDialog.getMotDePasseUser()
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                                
+//                                nouvel attributs
+//                                ,this.createUserDialog.getAttributs()
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                                
+                        );
                         this.createUserDialog.setVisible(false);
                         break;
                 }
@@ -86,6 +91,10 @@ public class MainControl implements PropertyChangeListener {
                 this.updateUserDialog.setPrenomUser(view.getSelectedPrenom());
                 this.updateUserDialog.setEmailUser(view.getSelectedEmail());
                 this.updateUserDialog.setMotDePasseUser(view.getSelectedMotDePasse());
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                
+//                nouvel attributs
+//                this.updateUserDialog.setAttributs(view.getSelectedAttributs());
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                
 
                 this.updateUserDialog.setDefaultData();
 
@@ -107,7 +116,12 @@ public class MainControl implements PropertyChangeListener {
                                 this.updateUserDialog.getNomUser(),
                                 this.updateUserDialog.getPrenomUser(),
                                 this.updateUserDialog.getEmailUser(),
-                                this.updateUserDialog.getMotDePasseUser());
+                                this.updateUserDialog.getMotDePasseUser()
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                                
+//                                nouvel attributs
+//                                ,this.updateUserDialog.getAttributs()
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                        
+                        );
                         this.updateUserDialog.setVisible(false);
                         break;
                 }

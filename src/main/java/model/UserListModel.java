@@ -18,7 +18,12 @@ public class UserListModel extends AbstractTableModel {
     
     private UserDao userdao = new UserDao();
     //Column name in a String array
-    String[] columnNames = {"Id_utilisateur", "Identifiant", "Nom", "Prenom", "Email", "Mot_de_passe"};
+    String[] columnNames = {"Id_utilisateur", "Identifiant", "Nom", "Prenom", "Email", "Mot_de_passe"
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//            nouvel attributs
+//            , "Attributs"
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    };
     
     
     
@@ -28,17 +33,37 @@ public class UserListModel extends AbstractTableModel {
         this.usersList = userdao.getAll();
     }
     
-    public void addUserList(String identifiant, String nom, String prenom, String email, String motDePasse)
+    public void addUserList(String identifiant, String nom, String prenom, String email, String motDePasse
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//            nouvel attributs
+//            ,String attributs
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    )
     {
-        User dbUser = this.userdao.insertUser(new User(identifiant, nom, prenom, email, motDePasse));
+        User dbUser = this.userdao.insertUser(new User(identifiant, nom, prenom, email, motDePasse
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                nouvel attributs
+//        ,attributs
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ));
         usersList.add(dbUser);
         this.usersList = userdao.getAll();
         this.fireTableDataChanged();
     }
     
-    public void updateUser(int id, String identifiant, String nom, String prenom, String email, String motDePasse)
+    public void updateUser(int id, String identifiant, String nom, String prenom, String email, String motDePasse
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//            nouvel attributs
+//            ,String attributs
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    )
     {
-        User dbuser = this.userdao.updateUser(new User(id, identifiant, nom, prenom, email, motDePasse));
+        User dbuser = this.userdao.updateUser(new User(id, identifiant, nom, prenom, email, motDePasse
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//                nouvel attributs
+//                ,attributs
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ));
         this.usersList = userdao.getAll();
         this.fireTableDataChanged();
     }
@@ -77,6 +102,11 @@ public class UserListModel extends AbstractTableModel {
                 return i.getEmail();
             case 5 :
                 return i.getMotDePasse();
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                
+//                nouvel attributs
+//            case 6 :
+//                return i.getAttributs();
+//    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!                
         }
         return null;
     }
